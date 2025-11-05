@@ -160,3 +160,39 @@ footer h1 {
   line-height: 3rem;
   word-break: break-all;
 }
+
+/* --- Estilo para loading --- */
+
+/* Estilo que aparecerá quando o carregamento estiver ativo no footer */
+.loading-state footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Esconde o resultado (h1) durante o carregamento */
+.loading-state footer h1 {
+  display: none;
+}
+
+/* Estiliza o texto de carregamento */
+.loading-state #description {
+  color: #4a5dcd;
+  font-weight: 500;
+  font-size: 1.1rem;
+  animation: pulse 1.5s infinite;
+}
+
+/* Animação simples de pulsação */
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
