@@ -19,7 +19,7 @@ footer.classList.add("show-result")
 description.textContent = "Buscando cotações em tempo real..."
 
    try {
-        const response = await fetch('https://economia.awesomeapi.com.br/json/last/USD-BRL,EUR-BRL,GBP-BRL,BTC-BRL,ETH-BRL,SOL-BRL')
+        const response = await fetch('https://economia.awesomeapi.com.br/json/last/USD-BRL,EUR-BRL,GBP-BRL,BTC-BRL,ETH-BRL,SOL-BRL,ARS-BRL,CNY-BRL,JPY-BRL')
 
         if (!response.ok) {
             throw new Error(`HTTP error! Status: $${response.status}`)
