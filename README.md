@@ -6,50 +6,40 @@ Um conversor de moedas moderno e responsivo, focado em câmbio entre moedas fidu
 
 ## 🌟 Visão Geral e Funcionalidades
 
-Este projeto transforma um conversor simples em uma ferramenta robusta, integrando cotações em tempo real e um design que valoriza a experiência do usuário em ambientes escuros.
+Este projeto transforma um conversor simples em uma ferramenta robusta e visualmente coesa, integrando cotações em tempo real e garantindo uma excelente experiência de usuário em qualquer dispositivo.
 
-### Características Principais:
+### 💰 Cobertura de Moedas:
 
-* **Cotações em Tempo Real:** Utiliza a API `AwesomeAPI` para buscar cotações em tempo real.
-* **Cobertura Ampla:** Suporte para moedas Fiduciárias (USD, EUR, GBP, **ARS, CNY, JPY**) e Criptomoedas (BTC, ETH, SOL).
-* **Design Dark/DeFi:** Estilo coeso com fundo de grade geométrica, cores de destaque Neon (Roxo e Ciano) e tipografia moderna.
-* **Responsividade:** Layout otimizado para se adaptar a diferentes tamanhos de tela.
-* **UX Aprimorada:** Feedback visual de carregamento (`loading-state`) e tratamento de erros (futuramente com modais customizados).
+* **Moedas Fiduciárias (Fiat):** Dólar Americano (USD), Euro (EUR), Libra Esterlina (GBP), **Peso Argentino (ARS)**, **Yuan Chinês (CNY)** e **Yen Japonês (JPY)**.
+* **Criptomoedas (Crypto):** Bitcoin (BTC), Ethereum (ETH), Solana (SOL).
+
+### ✨ Destaques de UX/Design:
+
+* **Responsividade Total:** Layout adaptável e funcional em telas de desktop e dispositivos móveis (Mobile-First).
+* **Harmonia Visual:** Design Dark/DeFi com fundo de grade geométrica, cores Neon de destaque e alinhamento visual perfeito, incluindo a correção de `padding` e `background-color` do `footer`.
+* **Feedback Visual:** Feedback de carregamento (`loading-state`) durante a busca de cotações.
 
 ---
 
 ## 🛠️ Tecnologias Utilizadas
 
 * **HTML5**
-* **CSS3** (com variáveis customizadas para o tema dark)
+* **CSS3** (com Media Queries para responsividade)
 * **JavaScript (ES6+)**
-* **API:** [Economia AwesomeAPI](https://docs.awesomeapi.com.br/api-de-moedas) para cotações.
+* **API:** [Economia AwesomeAPI](https://docs.awesomeapi.com.br/api-de-moedas) para cotações em tempo real.
 
 ---
 
-## ⚙️ Mudanças e Desenvolvimento Recente
+## ⚙️ Últimas Atualizações e Correções
 
-As seguintes mudanças foram implementadas para expandir a funcionalidade e melhorar a estética:
-
-### 1. Expansão de Moedas
-
-* Adicionado suporte completo para **Peso Argentino (ARS)**, **Yuan Chinês (CNY)** e **Yen Japonês (JPY)**.
-* Atualizada a função `fetchExchangeRates` e o `switch` de conversão para integrar as novas moedas e seus símbolos.
-
-### 2. Correção de Estabilidade (API)
-
-* Corrigido o erro na URL de busca da API, garantindo o carregamento correto das cotações em tempo real. Implementado fallback de cotações para resiliência.
-
-### 3. Melhorias de Design (Harmonia Visual - A Ser Finalizado)
-
-* **Fundo:** Implementado `background-size: cover;` para o fundo de grade futurista, garantindo que a imagem preencha toda a tela sem repetição.
-* **Harmonia de Cores:** Ajustadas as cores de fundo do `form` e `footer` para criar uma peça única e escura, alinhada com o tema Dark/DeFi.
-* **Alinhamento do Footer (Pendência Resolvida):** Corrigido o `padding` inconsistente e o `background-color` do `footer` para garantir alinhamento perfeito com as laterais do conversor (`main`).
+* **[Feat] Expansão de Moedas:** Adicionado suporte para **ARS, CNY e JPY**.
+* **[Fix] Estabilidade API:** Corrigida a URL de busca da API para garantir o carregamento correto das cotações (com fallback em caso de falha).
+* **[Feat/Fix] Design Responsivo:** Implementada a responsividade completa e corrigido o desalinhamento e a inconsistência de cor nas laterais do `footer`.
 
 ---
 
 ## 🏃 Como Rodar o Projeto
 
-1.  Clone este repositório: `git clone https://docs.github.com/pt/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github`
+1.  Clone este repositório: `git clone [COLOQUE A URL DO SEU REPOSITÓRIO AQUI]`
 2.  Abra a pasta do projeto.
-3.  Abra o arquivo `index.html` em seu navegador (ou use uma extensão de servidor local como o Live Server no VS Code).
+3.  Abra o arquivo `index.html` em seu navegador (ou use o Live Server no VS Code).
