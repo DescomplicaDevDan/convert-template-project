@@ -48,7 +48,7 @@ body {
 
 main {
   width: 480px;
-  border-radius: 1.5rem;
+  border-radius: 1.6rem;
 
   border: 1px solid #1f2151;
   
@@ -59,7 +59,7 @@ form {
 
   display: flex;
   flex-direction: column;
-  border-radius: 1rem;
+  border-radius: 1.6rem;
 
   padding: 3.5rem 4rem;
 }
@@ -207,7 +207,7 @@ footer h1 {
 @media (max-width: 540px) {
   main {
     width: 90%;
-    border-radius: 1rem;
+    border-radius: 1.5rem;
   }
 
   form {
