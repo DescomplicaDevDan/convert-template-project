@@ -200,3 +200,28 @@ footer h1 {
     opacity: 1;
   }
 }
+
+@media (max-width: 540px) {
+  main {
+    width: 90%;
+    border-radius: 1rem;
+  }
+
+  form {
+    padding: 2.5rem 2rem;
+  }
+
+  footer {
+    padding: 2.5rem 2rem;
+    background-color: #0d1117;
+    border-top: 1px solid #1f2151;
+  }
+
+  .logo {
+    width: 200px;
+  }
+
+  body {
+    gap: 2rem
+  }
+}
