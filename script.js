@@ -19,7 +19,7 @@ footer.classList.add("show-result")
 description.textContent = "Buscando cotações em tempo real..."
 
    try {
-        const response = await fetch('https://economia.awesomeapi.com.br/json/last/USD-BRL,EUR-BRL,GBP-BRL')
+        const response = await fetch('https://economia.awesomeapi.com.br/json/last/USD-BRL,EUR-BRL,GBP-BRL,BTC-BRL,ETH-BRL,SOL-BRL')
 
         if (!response.ok) {
             throw new Error(`HTTP error! Status: $${response.status}`)
@@ -32,6 +32,9 @@ description.textContent = "Buscando cotações em tempo real..."
             USD: parseFloat(data.USDBRL.bid),
             EUR: parseFloat(data.EURBRL.bid),
             GBP: parseFloat(data.GBPBRL.bid),
+            BTC: parseFloat(data.BTCBRL.bid),
+            ETH: parseFloat(data.ETHBRL.bid),
+            SOL: parseFloat(data.SOLBRL.bid),
         }
 
         description.textContent = "Cotações atualizadas!"
@@ -41,7 +44,9 @@ description.textContent = "Buscando cotações em tempo real..."
     description.textContent = "Erro ao carregar! Usando cotações de fallback."
 
     // Valores de fallback caso a API falhe
-    exchangeRates = {USD: 5.38, EUR: 5.80, GBP: 6.50,}
+    exchangeRates = {USD: 5.38, EUR: 5.80, GBP: 6.50,
+                    BTC: 550000.00, ETH: 18300.00, SOL: 160.00
+    }
    } finally {
     // Desativa o estado de carregamento após a conclusão.
         setTimeout(() => {
@@ -94,7 +99,19 @@ form.onsubmit = (event) => {
         case "GBP":
             price = exchangeRates.GBP
             symbol = "£"
-            break       
+            break
+        case "BTC":
+            price = exchangeRates.BTC
+            symbol = "₿" // Símbolo do Bitcoin (opcional, pode usar 'BTC')
+        break 
+        case "ETH":
+            price = exchangeRates.ETH
+            symbol = "Ξ" // Símbolo do Ethereum (opcional, pode usar 'ETH')
+        break
+        case "SOL":
+            price = exchangeRates.SOL
+            symbol = "◎" // Símbolo do Solana (opcional, pode usar 'SOL')
+        break       
     }
 
     if (!price || isNaN(price)) {
