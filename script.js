@@ -35,6 +35,9 @@ description.textContent = "Buscando cotações em tempo real..."
             BTC: parseFloat(data.BTCBRL.bid),
             ETH: parseFloat(data.ETHBRL.bid),
             SOL: parseFloat(data.SOLBRL.bid),
+            ARS: parseFloat(data.ARSBRL.bid),
+            CNY: parseFloat(data.CNYBRL.bid),
+            JPY: parseFloat(data.JPYBRL.bid),
         }
 
         description.textContent = "Cotações atualizadas!"
@@ -45,7 +48,8 @@ description.textContent = "Buscando cotações em tempo real..."
 
     // Valores de fallback caso a API falhe
     exchangeRates = {USD: 5.38, EUR: 5.80, GBP: 6.50,
-                    BTC: 550000.00, ETH: 18300.00, SOL: 160.00
+                    BTC: 550000.00, ETH: 18300.00, SOL: 160.00,
+                    ARS: 0.0065, CNY: 0.70, JPY: 0.035, 
     }
    } finally {
     // Desativa o estado de carregamento após a conclusão.
@@ -103,15 +107,27 @@ form.onsubmit = (event) => {
         case "BTC":
             price = exchangeRates.BTC
             symbol = "₿" // Símbolo do Bitcoin (opcional, pode usar 'BTC')
-        break 
+            break 
         case "ETH":
             price = exchangeRates.ETH
             symbol = "Ξ" // Símbolo do Ethereum (opcional, pode usar 'ETH')
-        break
+            break
         case "SOL":
             price = exchangeRates.SOL
             symbol = "◎" // Símbolo do Solana (opcional, pode usar 'SOL')
-        break       
+            break
+        case "ARS": 
+            price = exchangeRates.ARS
+            symbol = "AR$"
+            break
+        case "CNY": 
+            price = exchangeRates.CNY
+            symbol = "¥" // Símbolo do Yuan
+            break
+        case "JPY": 
+            price = exchangeRates.JPY
+            symbol = "¥" // Símbolo do Yen (o mesmo do Yuan, mas será JPY 1 = R$ X)
+            break           
     }
 
     if (!price || isNaN(price)) {
