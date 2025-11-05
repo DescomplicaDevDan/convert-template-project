@@ -53,4 +53,4 @@ Este projeto foi desenvolvido de forma incremental com foco em boas práticas de
 * **Deploy:** O projeto está atualmente hospedado e em *deploy* contínuo pela **Vercel**.
 * **Commits:** Utilizam a convenção de nomenclatura (ex: `feat:`, `fix:`, `style:`).
 
-Feito com 💚 por **[DescomplicaDevDan]**
+Feito com 💚 por **DescomplicaDevDan**
