@@ -1,56 +1,55 @@
-# 🚀 Currency Converter App
+# 🚀 Conversor de Moedas DeFi
 
-Um conversor de moedas moderno e responsivo que utiliza dados em tempo real para calcular a conversão entre as principais moedas fiduciárias (USD, EUR, GBP) e criptomoedas (BTC, ETH, SOL) para o Real Brasileiro (BRL).
+Um conversor de moedas moderno e responsivo, focado em câmbio entre moedas fiduciárias (fiat) e criptomoedas (crypto), com um design dark e futurista (DeFi/Cyberpunk).
 
 ---
 
-## ✨ Funcionalidades
+## 🌟 Visão Geral e Funcionalidades
 
-* **Cotações em Tempo Real:** Utiliza a **AwesomeAPI** para buscar os valores de câmbio mais recentes.
-* **Suporte a Múltiplas Moedas:** Converte **Dólar (USD), Euro (EUR), Libra (GBP), Bitcoin (BTC), Ethereum (ETH)** e **Solana (SOL)**.
-* **Validação de Input:** Aceita corretamente valores decimais (com ponto) e impede a entrada de caracteres inválidos.
-* **Feedback Visual:** Exibe um estado de *loading* animado enquanto busca as cotações da API.
-* **Fallback:** Possui cotações de segurança (hardcoded) para o caso de a API falhar.
+Este projeto transforma um conversor simples em uma ferramenta robusta, integrando cotações em tempo real e um design que valoriza a experiência do usuário em ambientes escuros.
+
+### Características Principais:
+
+* **Cotações em Tempo Real:** Utiliza a API `AwesomeAPI` para buscar cotações em tempo real.
+* **Cobertura Ampla:** Suporte para moedas Fiduciárias (USD, EUR, GBP, **ARS, CNY, JPY**) e Criptomoedas (BTC, ETH, SOL).
+* **Design Dark/DeFi:** Estilo coeso com fundo de grade geométrica, cores de destaque Neon (Roxo e Ciano) e tipografia moderna.
+* **Responsividade:** Layout otimizado para se adaptar a diferentes tamanhos de tela.
+* **UX Aprimorada:** Feedback visual de carregamento (`loading-state`) e tratamento de erros (futuramente com modais customizados).
 
 ---
 
 ## 🛠️ Tecnologias Utilizadas
 
-O projeto é baseado puramente em tecnologias *front-end* padrão:
-
-* **HTML5:** Estrutura semântica do aplicativo.
-* **CSS3:** Estilização, layout responsivo e animações (`@keyframes` para o estado de loading).
-* **JavaScript (ES6+):** Lógica de conversão, manipulação do DOM e chamadas assíncronas à API (`fetch`).
-
-### 🌐 API de Câmbio
-
-* **AwesomeAPI:** Utilizada para obter dados atualizados de moedas e criptomoedas.
+* **HTML5**
+* **CSS3** (com variáveis customizadas para o tema dark)
+* **JavaScript (ES6+)**
+* **API:** [Economia AwesomeAPI](https://docs.awesomeapi.com.br/api-de-moedas) para cotações.
 
 ---
 
-## 💻 Como Executar Localmente
+## ⚙️ Mudanças e Desenvolvimento Recente
 
-Siga estas etapas para rodar o projeto na sua máquina:
+As seguintes mudanças foram implementadas para expandir a funcionalidade e melhorar a estética:
 
-1.  **Clone o repositório:**
-    ```bash
-    git clone [SUA_URL_DO_GITHUB]
-    ```
-2.  **Entre na pasta do projeto:**
-    ```bash
-    cd currency-converter-app
-    ```
-3.  **Abra o arquivo:**
-    Simplesmente abra o arquivo `index.html` em qualquer navegador.
-    *(Este projeto não requer servidor back-end, apenas um navegador.)*
+### 1. Expansão de Moedas
+
+* Adicionado suporte completo para **Peso Argentino (ARS)**, **Yuan Chinês (CNY)** e **Yen Japonês (JPY)**.
+* Atualizada a função `fetchExchangeRates` e o `switch` de conversão para integrar as novas moedas e seus símbolos.
+
+### 2. Correção de Estabilidade (API)
+
+* Corrigido o erro na URL de busca da API, garantindo o carregamento correto das cotações em tempo real. Implementado fallback de cotações para resiliência.
+
+### 3. Melhorias de Design (Harmonia Visual - A Ser Finalizado)
+
+* **Fundo:** Implementado `background-size: cover;` para o fundo de grade futurista, garantindo que a imagem preencha toda a tela sem repetição.
+* **Harmonia de Cores:** Ajustadas as cores de fundo do `form` e `footer` para criar uma peça única e escura, alinhada com o tema Dark/DeFi.
+* **Alinhamento do Footer (Pendência Resolvida):** Corrigido o `padding` inconsistente e o `background-color` do `footer` para garantir alinhamento perfeito com as laterais do conversor (`main`).
 
 ---
 
-## 🤝 Contribuição e Deploy
+## 🏃 Como Rodar o Projeto
 
-Este projeto foi desenvolvido de forma incremental com foco em boas práticas de Git e JavaScript moderno.
-
-* **Deploy:** O projeto está atualmente hospedado e em *deploy* contínuo pela **Vercel**.
-* **Commits:** Utilizam a convenção de nomenclatura (ex: `feat:`, `fix:`, `style:`).
-
-Feito com 💚 por **DescomplicaDevDan**
+1.  Clone este repositório: `git clone https://docs.github.com/pt/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github`
+2.  Abra a pasta do projeto.
+3.  Abra o arquivo `index.html` em seu navegador (ou use uma extensão de servidor local como o Live Server no VS Code).
