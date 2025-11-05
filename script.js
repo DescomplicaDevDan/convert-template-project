@@ -1,17 +1,57 @@
-// Cotação das moedas do dia.
-const USD = 5.39
-const EUR = 6.20
-const GBP = 7.03
 
 // Obtendo os elementos do formulário.
 const form = document.querySelector("form")
 const amount = document.getElementById("amount")
 const currency = document.getElementById("currency")
+const main = document.querySelector("main")
 const footer = document.querySelector("main footer")
 const description = document.getElementById("description")
 const result = document.getElementById("result")
 
-// Manipulando o input amount para receber somente números e o ponto decimal.
+// Objeto para armazenar as cotações em tempo real.
+let exchangeRates = {}
+
+// Função para buscar cotações.
+async function fetchExchangeRates() {
+// Ativa o estado de carregamento.
+main.classList.add("loading-state")
+footer.classList.add("show-result")
+description.textContent = "Buscando cotações em tempo real..."
+
+   try {
+        const response = await fetch('https://economia.awesomeapi.com.br/json/last/USD-BRL,EUR-BRL,GBP-BRL')
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: $${response.status}`)
+        }
+
+        const data = await response.json()
+
+        // Armazena as cotações no objeto global
+        exchangeRates = {
+            USD: parseFloat(data.USDBRL.bid),
+            EUR: parseFloat(data.EURBRL.bid),
+            GBP: parseFloat(data.GBPBRL.bid),
+        }
+
+        description.textContent = "Cotações atualizadas!"
+
+   } catch (error) {
+    console.error("Erro ao buscar cotações:", error)
+    description.textContent = "Erro ao carregar! Usando cotações de fallback."
+
+    // Valores de fallback caso a API falhe
+    exchangeRates = {USD: 5.38, EUR: 5.80, GBP: 6.50,}
+   } finally {
+    // Desativa o estado de carregamento após a conclusão.
+        setTimeout(() => {
+            main.classList.remove("loading-state")
+            footer.classList.remove("show-result")
+        }, 1500)
+    }
+
+}
+
 amount.addEventListener("input", () => {
    const hasCharactersRegex = /[^0-9.]/g
    amount.value = amount.value.replace(hasCharactersRegex, "")
@@ -39,17 +79,30 @@ form.onsubmit = (event) => {
         return alert("Por favor, digite um valor número válido maior que zero para converter.")
     }
 
+    let price;
+    let symbol;
+
     switch (currency.value) {
         case "USD":
-            convertCurrency(amount.value, USD, "US$")
+            price = exchangeRates.USD 
+            symbol = "US$"
             break
         case "EUR":
-            convertCurrency(amount.value, EUR, "€")
+            price = exchangeRates.EUR
+            symbol = "€"
             break
         case "GBP":
-            convertCurrency(amount.value, GBP, "£")
+            price = exchangeRates.GBP
+            symbol = "£"
             break       
     }
+
+    if (!price || isNaN(price)) {
+         return alert("Erro: Cotação da moeda não disponível. Tente recarregar a página.")
+    }
+
+    convertCurrency(amountValue, price, symbol)
+
 }
 
 // Função para converter a moeda.
@@ -92,3 +145,5 @@ function formatCurrencyBRL(value) {
         currency: "BRL",
     })
 }
+
+fetchExchangeRates()
